@@ -21,7 +21,8 @@ docker build -t ipybook . && docker run -v `pwd`/public:/book/public: -it ipyboo
 
 `public/`以下にnotebookをpdfをhtmlで吐き出したものが保存されます。
 
-### 
+### 自動ビルド 
+
 リポジトリをgitlabに作成した場合、
 masterにpushすると自動でビルドが走り、pdf・html版が作成されます。
 以下から確認とダウンロードができます。

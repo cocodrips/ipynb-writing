@@ -1,0 +1,15 @@
+image: atsuoishimoto/ubuntu-latex
+pages:
+  script:
+    # BUILD    
+    - apt -y update
+    - apt -y install pandoc
+    - pip3 install ipython nbconvert
+    - apt -y install texlive-generic-recommended
+    - make build
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
+    - ci

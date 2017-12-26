@@ -1,0 +1,19 @@
+% Default to the notebook output style
+((* if not cell_style is defined *))
+    ((* set cell_style = 'style_ipython.tplx' *))
+((* endif *))
+
+% Inherit from the specified cell style.
+((* extends cell_style *))
+
+%===============================================================================
+% Latex Article
+%===============================================================================
+
+((* block commands *))
+\setcounter{secnumdepth}{0} % Turns off numbering for sections
+((* endblock commands *))
+
+((* block docclass *))
+\documentclass[a4paper,dvipdfmx]{jsarticle}
+((* endblock docclass *))

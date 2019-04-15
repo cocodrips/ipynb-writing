@@ -7,3 +7,4 @@ RUN apt -y install texlive-generic-recommended npm nodejs nodejs-legacy
 RUN npm install -g textlint 
 RUN npm install -g textlint-rule-no-mix-dearu-desumasu textlint-rule-max-ten textlint-rule-spellcheck-tech-word
 
+WORKDIR /book

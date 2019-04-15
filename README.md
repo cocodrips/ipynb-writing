@@ -75,7 +75,7 @@ docker build -t ipybook . && docker run -v `pwd`/public:/book/public: -it ipyboo
 ![画像test](../images/green.png)
 ```
 
-## PDF2
+## pdf2
 
 上記までのオリジナルのものとは別に, `make pdf2` で PDF を出力できるようにしました.
 
@@ -84,6 +84,17 @@ docker build -t ipybook . && docker run -v `pwd`/public:/book/public: -it ipyboo
 + 画像は `notebook/image` ディレクトリに配置する (`image/`ではエラーとなる)
 + pdf 作成時に latex の関連ファイルが出力されない
 + デフォルトでは input セルは出力されない. 出力したい場合は `make pdf2 EXCLUDE_INPUT=True` を実行する
+
+#### PDF出力
+
+pdf2 での PDF 出力は次のコマンドを実行します.
+
+```
+docker-compose -f docker-compose.pdf.yml up pdf
+```
+
+成功すると, `public/pdf` 以下に PDF が出力されます.
+
 
 ## title と author
 

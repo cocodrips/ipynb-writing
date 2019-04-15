@@ -1,0 +1,17 @@
+version: "2.3"
+services:
+  make:
+    extends:
+      file: docker-compose.yml 
+      service: ubuntu-latex
+    container_name: ipynb-writing-make
+    command: make
+    tty: false
+
+  pdf:
+    extends:
+      file: docker-compose.yml 
+      service: ubuntu-latex
+    container_name: ipynb-writing-pdf
+    command: make pdf2
+    tty: false

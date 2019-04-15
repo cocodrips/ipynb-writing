@@ -17,3 +17,9 @@
 ((* block docclass *))
 \documentclass[a4paper,dvipdfmx]{jsarticle}
 ((* endblock docclass *))
+
+% enable jp title
+((* block title -*))
+((*- set nb_title = nb.metadata.get('title', '') or resources['metadata']['name'] -*))
+\title{((( nb_title | escape_latex )))}
+((*- endblock title *))

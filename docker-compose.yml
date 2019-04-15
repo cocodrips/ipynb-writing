@@ -8,4 +8,8 @@ services:
     container_name: ipynb-writing
     volumes:
       - .:/book
+      - ${PWD}/.jupyter/nbconfig:/root/.jupyter/nbconfig
+      - ${PWD}/.jupyter/jupyter_nbconvert_config.py:/root/.jupyter/jupyter_nbconvert_config.py
+      - ${PWD}/.jupyter/nbconvert_templates:/root/.jupyter/nbconvert_templates
+
     tty: true

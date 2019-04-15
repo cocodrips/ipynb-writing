@@ -1,5 +1,6 @@
 NOTEBOOK := $(wildcard notebook/*.ipynb)
-.PHONY: build lint pdf html index
+EXCLUDE_INPUT := True
+.PHONY: build lint pdf html index pdf2
 
 build: pdf html index
 
@@ -24,3 +25,13 @@ index: $(NOTEBOOK)
 textlint: $(NOTEBOOK)
 	ipython nbconvert --to markdown notebook/*.ipynb
 	textlint -f pretty-error notebook/*.md
+
+pdf2: $(NOTEBOOK)
+	mkdir -p public/pdf
+	$(eval tmpdir := $(shell mktemp -d))
+	# ln -s /notebook/*.ipynb $(tmpdir)/
+	ls /book/notebook/*.ipynb | xargs ln -s -t $(tmpdir)
+	ln -s /book/notebook/image $(tmpdir)/image
+	cd $(tmpdir); \
+	ls *.ipynb | xargs ipython nbconvert --to pdf --template jsarticle.tplx --TemplateExporter.exclude_input=$(EXCLUDE_INPUT);\
+	mv *.pdf /book/public/pdf

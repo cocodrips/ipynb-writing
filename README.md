@@ -28,6 +28,17 @@ docker build -t ipybook . && docker run -v `pwd`/public:/book/public: -it ipyboo
 
 `http://{グループ名}.gitlab.io/{リポジトリ名}/`
 
+#### fumuumuf 版
+
+gitlab pages は private リポジトリでも公開されてしまうので, デフォルトでは機能しないようにしています. 
+この自動ビルドを使用する場合は
+
+```console
+cp exapmle.gitlab-ci.yml .gitlab-ci.yml
+```
+
+として, `.gitlab-ci.yml` を作成してください.
+
 
 ## Textlint
 

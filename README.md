@@ -37,7 +37,7 @@ gitlab pages は private リポジトリでも公開されてしまうので, �
 cp exapmle.gitlab-ci.yml .gitlab-ci.yml
 ```
 
-として, `.gitlab-ci.yml` を作成してください.
+として `.gitlab-ci.yml` を作成してください.
 
 
 ## Textlint

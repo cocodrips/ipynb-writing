@@ -1,0 +1,11 @@
+version: "2.3"
+services:
+  ubuntu-latex:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
+    container_name: ipynb-writing
+    volumes:
+      - .:/book
+    tty: true

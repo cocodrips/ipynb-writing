@@ -16,7 +16,7 @@
 手元でpdf/htmlにビルドしたい場合は以下を実行します
 
 ```sh
-docker build -t ipybook . && docker run -v `pwd`/public:/book/public: -it ipybook make
+docker-compose -f docker-compose.pdf.yml up make
 ```
 
 `public/`以下にnotebookをpdfをhtmlで吐き出したものが保存されます。
@@ -75,3 +75,32 @@ docker build -t ipybook . && docker run -v `pwd`/public:/book/public: -it ipyboo
 ![画像test](../images/green.png)
 ```
 
+## PDF2
+
+上記までのオリジナルのものとは別に, `make pdf2` で PDF を出力できるようにしました.
+
+オリジナルのものとは以下の違いがあります.
+
++ 画像は `notebook/image` ディレクトリに配置する (`image/`ではエラーとなる)
++ pdf 作成時に latex の関連ファイルが出力されない
++ デフォルトでは input セルは出力されない. 出力したい場合は `make pdf2 EXCLUDE_INPUT=True` を実行する
+
+## title と author
+
+タイトルと著者は notebook の metadata の `title` と `authors` で設定できます.  
+
+metadata は, メニューの **Edit > EditNotebook Metadata** から編集します.
+
+```json
+ "metadata": {
+  "authors": [
+   {
+    "name": "著者A"
+   }
+  ],
+  "title": "pdf のタイトル",
+
+// ... その他の設定
+
+ },
+```
